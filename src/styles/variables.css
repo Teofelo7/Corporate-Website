@@ -1,0 +1,49 @@
+/* ── Design Tokens ───────────────────────────────────────────────────────────
+   Single source of truth for all brand colours, spacing, and radius values.
+   Import this file before any component styles.
+   ─────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Brand colours */
+  --navy:         #18244E;
+  --navy-800:     #243166;
+  --navy-900:     #0f1835;
+  --accent:       #2563EB;
+  --accent-50:    #eff6ff;
+  --accent-100:   #dbeafe;
+  --accent-muted: #93c5fd;
+
+  /* Neutral surface */
+  --white:        #ffffff;
+  --surface:      #f8fafc;
+  --surface-card: #ffffff;
+
+  /* Text */
+  --text-base:    #1e293b;
+  --text-muted:   #64748b;
+  --text-faint:   #94a3b8;
+
+  /* Borders */
+  --border:       #e2e8f0;
+  --border-focus: var(--accent);
+
+  /* Shadows */
+  --shadow-sm:    0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-card:  0 1px 3px 0 rgb(0 0 0 / 0.08), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+  --shadow-hover: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 4px 10px -6px rgb(0 0 0 / 0.08);
+
+  /* Radius */
+  --radius-sm:    0.5rem;
+  --radius-md:    0.75rem;
+  --radius-lg:    1rem;
+  --radius-xl:    1.25rem;
+  --radius-full:  9999px;
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Transition */
+  --transition:    150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-md: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}

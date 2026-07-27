@@ -1,0 +1,2 @@
+/* Re-exports the real global stylesheet so main.tsx can keep its import path */
+@import './styles/global.css';

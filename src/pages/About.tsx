@@ -11,12 +11,11 @@ interface AboutProps {
 }
 
 const CORE_VALUES: { iconName: IconName; title: string; desc: string }[] = [
-  { iconName: 'shield', title: 'Quality First',       desc: 'Every project meets the highest engineering and safety standards — because our work stands long after we leave.' },
-  { iconName: 'users',  title: 'People & Community', desc: 'Built by Sabahans, for Sabah. Empowering local talent and serving our communities drives everything we do.' },
-  { iconName: 'leaf',   title: 'Sustainability',      desc: 'From solar installations to green site practices, we build with tomorrow in mind.' },
-  { iconName: 'chart',  title: 'Accountability',      desc: 'We own our commitments. Every milestone, every deliverable, every promise.' },
-  { iconName: 'clock',  title: 'Reliability',         desc: 'Our clients trust us with their most important projects — we honour that trust every time.' },
-  { iconName: 'cog',    title: 'Innovation',          desc: 'We embrace new technologies and engineering methods to deliver smarter, more efficient solutions.' },
+  { iconName: 'star', title: 'Quality', desc: 'We uphold the highest standards in all our projects, ensuring exceptional results that meet and exceed client expectations.' },
+  { iconName: 'cog', title: 'Innovation', desc: 'Our forward-thinking approach drives continuous improvement and the development of cutting-edge solutions.' },
+  { iconName: 'shield', title: 'Integrity', desc: 'We conduct our business with honesty, transparency, and ethical practices.' },
+  { iconName: 'leaf', title: 'Sustainability', desc: 'We prioritize eco-friendly practices and solutions that contribute to a healthier planet.' },
+  { iconName: 'users', title: 'Customer-Centricity', desc: "Our clients' needs and satisfaction are at the heart of everything we do." },
 ]
 
 export default function About({ onNavigate }: AboutProps) {
@@ -26,50 +25,43 @@ export default function About({ onNavigate }: AboutProps) {
 
   return (
     <>
-      <PageBanner
-        title="About TOMBORNEO"
-        eyebrow="Our Story"
-        image={IMAGES.about}
-      />
+      <PageBanner title="About TOMBORNEO" eyebrow="Company Profile" image={IMAGES.about} />
 
-      {/* ── Company Story ── */}
       <section className="py-24 lg:py-32" aria-labelledby="story-heading">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-            {/* Text */}
             <div>
-              <SectionLabel index="01" label="The Name & the Story" />
+              <SectionLabel index="01" label="About Company" />
               <h2 id="story-heading" className="font-display text-4xl lg:text-5xl font-bold text-[#18244E] leading-tight mb-6">
-                Born from Sabah,<br />Built on Heritage
+                Sabah Based.<br />Focused on Sustainable Solutions.
               </h2>
               <div className="space-y-5 text-slate-600 leading-relaxed">
                 <p>
-                  The name <strong className="text-[#18244E]">TOMBORNEO</strong> carries two layers of meaning. <em>Tombonuo</em> is one of the native peoples of Sabah — a community celebrated for their craftsmanship, resilience, and deep connection to the land. <em>Borneo</em> is the island that has shaped our identity and our purpose.
+                  TOMBORNEO Sdn. Bhd. is a locally owned and operated company based in Sabah, Malaysia, and has operated since its inception in 2019.
                 </p>
                 <p>
-                  When we founded this company in Kota Kinabalu, we did so with a belief that the best construction comes from people who are genuinely invested in the place they build. Sabah is our home. Every road we lay, every building we erect, every solar panel we install is part of our commitment to the communities that live here.
+                  The company officially incorporated in 2024 to enhance its commitment to delivering top-quality services. Its work specialises in solar photovoltaic installation, construction, and a comprehensive range of mechanical and electrical work.
                 </p>
                 <p>
-                  Over 15 years of operation, we have grown from a small civil works contractor into a multi-discipline engineering company with a proven portfolio spanning building construction, civil infrastructure, electrical installation, and clean energy solutions.
+                  TOMBORNEO is dedicated to fostering innovation and sustainability in every project it undertakes.
                 </p>
               </div>
             </div>
 
-            {/* Image + stats */}
             <div className="space-y-6">
               <div className="rounded-2xl overflow-hidden bg-slate-100 aspect-[4/3]">
                 <img
-                  src={IMAGES.skyscrapers}
-                  alt="TOMBORNEO high-rise construction project"
+                  src={IMAGES.solar}
+                  alt="Solar photovoltaic project reference from the TOMBORNEO company profile"
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
               </div>
               <div className="grid grid-cols-3 gap-4">
                 {[
-                  { value: '2009',  label: 'Year Founded' },
-                  { value: 'G3',    label: 'CIDB Grade' },
-                  { value: 'Sabah', label: 'Headquartered' },
+                  { value: '2019', label: 'Operating Since' },
+                  { value: '2024', label: 'Incorporated' },
+                  { value: 'G3', label: 'CIDB Grade' },
                 ].map(({ value, label }) => (
                   <div key={label} className="bg-slate-50 rounded-xl p-4 text-center">
                     <div className="font-display text-xl font-bold text-[#18244E]">{value}</div>
@@ -82,14 +74,11 @@ export default function About({ onNavigate }: AboutProps) {
         </div>
       </section>
 
-      {/* ── Vision & Mission ── */}
       <section className="py-24 bg-[#18244E]" aria-labelledby="vision-heading">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-14">
             <SectionLabel index="02" label="Our Direction" />
-            <h2 id="vision-heading" className="font-display text-4xl lg:text-5xl font-bold text-white">
-              Vision &amp; Mission
-            </h2>
+            <h2 id="vision-heading" className="font-display text-4xl lg:text-5xl font-bold text-white">Vision &amp; Mission</h2>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -97,18 +86,15 @@ export default function About({ onNavigate }: AboutProps) {
               {
                 iconName: 'star' as IconName,
                 title: 'Our Vision',
-                text: "To be Sabah's most trusted construction and engineering company — recognized for quality, integrity, and a genuine commitment to the sustainable development of Borneo.",
+                text: 'To be a leading provider of integrated construction and renewable energy solutions, recognized for our commitment to excellence, sustainability, and customer satisfaction.',
               },
               {
                 iconName: 'cog' as IconName,
                 title: 'Our Mission',
-                text: 'To deliver engineering projects that exceed client expectations in quality, safety, and timeliness — while nurturing local talent, upholding sustainable practices, and contributing to the growth of Sabah.',
+                text: 'To pioneer sustainable solutions in the construction and renewable energy sectors, empowering communities and businesses through innovative services and ethical practices.',
               },
             ].map(({ iconName, title, text }) => (
-              <div
-                key={title}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-10 border border-white/10"
-              >
+              <div key={title} className="bg-white/10 backdrop-blur-sm rounded-2xl p-10 border border-white/10">
                 <div className="w-12 h-12 rounded-xl bg-[#2563EB]/20 flex items-center justify-center mb-6">
                   <Icon name={iconName} className="w-6 h-6 text-[#93c5fd]" />
                 </div>
@@ -120,22 +106,16 @@ export default function About({ onNavigate }: AboutProps) {
         </div>
       </section>
 
-      {/* ── Core Values ── */}
       <section className="py-24 lg:py-32" aria-labelledby="values-heading">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-14">
             <SectionLabel index="03" label="What Guides Us" />
-            <h2 id="values-heading" className="font-display text-4xl lg:text-5xl font-bold text-[#18244E]">
-              Our Core Values
-            </h2>
+            <h2 id="values-heading" className="font-display text-4xl lg:text-5xl font-bold text-[#18244E]">Our Core Values</h2>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {CORE_VALUES.map(({ iconName, title, desc }) => (
-              <div
-                key={title}
-                className="bg-white border border-slate-100 rounded-2xl p-7 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
-              >
+              <div key={title} className="bg-white border border-slate-100 rounded-2xl p-7 hover:shadow-md hover:-translate-y-1 transition-all duration-300">
                 <div className="w-10 h-10 rounded-xl bg-[#eff6ff] flex items-center justify-center mb-5">
                   <Icon name={iconName} className="w-5 h-5 text-[#2563EB]" />
                 </div>
@@ -147,18 +127,13 @@ export default function About({ onNavigate }: AboutProps) {
         </div>
       </section>
 
-      {/* ── CTA ── */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="font-display text-3xl lg:text-4xl font-bold text-[#18244E] mb-4">
-            Work With a Team That Cares
-          </h2>
+          <h2 className="font-display text-3xl lg:text-4xl font-bold text-[#18244E] mb-4">Discuss Your Next Project</h2>
           <p className="text-slate-500 mb-8 max-w-xl mx-auto">
-            Ready to discuss your next project? We&apos;re proud to be building Sabah — let&apos;s build it together.
+            Contact our team to discuss how TOMBORNEO can assist with your solar, construction, M&amp;E, or manpower requirements.
           </p>
-          <Button variant="primary" size="lg" onClick={() => navigate('contact')} withArrow>
-            Get in Touch
-          </Button>
+          <Button variant="primary" size="lg" onClick={() => navigate('contact')} withArrow>Get in Touch</Button>
         </div>
       </section>
     </>

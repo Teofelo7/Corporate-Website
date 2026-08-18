@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { SERVICES } from '../data/services'
-import Icon from './Icon'
 import Button from './Button'
 
 interface FormState {
@@ -21,8 +20,6 @@ const INPUT_BASE =
 
 export default function ContactForm() {
   const [form, setForm] = useState<FormState>(INITIAL_FORM)
-  const [loading, setLoading] = useState(false)
-  const [submitted, setSubmitted] = useState(false)
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -32,48 +29,27 @@ export default function ContactForm() {
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    setLoading(true)
-    // Simulate async submission
-    setTimeout(() => {
-      setLoading(false)
-      setSubmitted(true)
-    }, 1200)
-  }
 
-  function handleReset() {
-    setSubmitted(false)
-    setForm(INITIAL_FORM)
-  }
+    const serviceName = SERVICES.find((service) => service.id === form.service)?.title || form.service || 'General Enquiry'
+    const subject = `Project Enquiry - ${serviceName}`
+    const body = [
+      `Name: ${form.name}`,
+      `Company / Organisation: ${form.company || '-'}`,
+      `Email: ${form.email}`,
+      `Phone: ${form.phone || '-'}`,
+      `Service Required: ${serviceName}`,
+      '',
+      'Project Details:',
+      form.message,
+    ].join('\n')
 
-  if (submitted) {
-    return (
-      <div className="text-center py-20 px-6">
-        <div className="w-16 h-16 bg-[#eff6ff] rounded-full flex items-center justify-center mx-auto mb-6">
-          <Icon name="check" className="w-8 h-8 text-[#2563EB]" />
-        </div>
-        <h3 className="font-display text-2xl font-bold text-[#18244E] mb-3">
-          Message Received
-        </h3>
-        <p className="text-slate-500 max-w-sm mx-auto mb-8">
-          Thank you for your enquiry. Our team will review your message and respond within one business day.
-        </p>
-        <button
-          onClick={handleReset}
-          className="text-sm text-[#2563EB] font-medium hover:underline"
-        >
-          Send another message
-        </button>
-      </div>
-    )
+    window.location.href = `mailto:tomborneosb@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <h3 className="font-display text-2xl font-bold text-[#18244E] mb-8">
-        Project Enquiry
-      </h3>
+      <h3 className="font-display text-2xl font-bold text-[#18244E] mb-8">Project Enquiry</h3>
 
-      {/* Row 1 */}
       <div className="grid sm:grid-cols-2 gap-5 mb-5">
         <div>
           <label htmlFor="name" className="block text-xs font-semibold text-slate-500 mb-1.5">
@@ -86,14 +62,12 @@ export default function ContactForm() {
             name="name"
             value={form.name}
             onChange={handleChange}
-            placeholder="Name as per IC / Passport"
+            placeholder="Your name"
             className={INPUT_BASE}
           />
         </div>
         <div>
-          <label htmlFor="company" className="block text-xs font-semibold text-slate-500 mb-1.5">
-            Company / Organisation
-          </label>
+          <label htmlFor="company" className="block text-xs font-semibold text-slate-500 mb-1.5">Company / Organisation</label>
           <input
             id="company"
             type="text"
@@ -106,7 +80,6 @@ export default function ContactForm() {
         </div>
       </div>
 
-      {/* Row 2 */}
       <div className="grid sm:grid-cols-2 gap-5 mb-5">
         <div>
           <label htmlFor="email" className="block text-xs font-semibold text-slate-500 mb-1.5">
@@ -124,45 +97,31 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <label htmlFor="phone" className="block text-xs font-semibold text-slate-500 mb-1.5">
-            Phone Number
-          </label>
+          <label htmlFor="phone" className="block text-xs font-semibold text-slate-500 mb-1.5">Phone Number</label>
           <input
             id="phone"
             type="tel"
             name="phone"
             value={form.phone}
             onChange={handleChange}
-            placeholder="+60 12-345 6789"
+            placeholder="Your phone number"
             className={INPUT_BASE}
           />
         </div>
       </div>
 
-      {/* Service select */}
       <div className="mb-5">
-        <label htmlFor="service" className="block text-xs font-semibold text-slate-500 mb-1.5">
-          Service Required
-        </label>
-        <select
-          id="service"
-          name="service"
-          value={form.service}
-          onChange={handleChange}
-          className={INPUT_BASE}
-        >
+        <label htmlFor="service" className="block text-xs font-semibold text-slate-500 mb-1.5">Service Required</label>
+        <select id="service" name="service" value={form.service} onChange={handleChange} className={INPUT_BASE}>
           <option value="">Select a service...</option>
           {SERVICES.map((s) => (
-            <option key={s.id} value={s.id}>
-              {s.title}
-            </option>
+            <option key={s.id} value={s.id}>{s.title}</option>
           ))}
-          <option value="multiple">Multiple Services</option>
-          <option value="general">General Enquiry</option>
+          <option value="Multiple Services">Multiple Services</option>
+          <option value="General Enquiry">General Enquiry</option>
         </select>
       </div>
 
-      {/* Message */}
       <div className="mb-7">
         <label htmlFor="message" className="block text-xs font-semibold text-slate-500 mb-1.5">
           Project Details <span className="text-red-400">*</span>
@@ -174,32 +133,17 @@ export default function ContactForm() {
           value={form.message}
           onChange={handleChange}
           rows={5}
-          placeholder="Describe your project — location, scope, timeline, and any specific requirements..."
+          placeholder="Describe your project and requirements..."
           className={`${INPUT_BASE} resize-none`}
         />
       </div>
 
-      {/* Submit */}
-      <Button
-        type="submit"
-        variant="primary"
-        size="lg"
-        disabled={loading}
-        withArrow={!loading}
-        className="w-full"
-      >
-        {loading ? (
-          <span className="flex items-center justify-center gap-2">
-            <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
-            Sending...
-          </span>
-        ) : (
-          'Submit Enquiry'
-        )}
+      <Button type="submit" variant="primary" size="lg" withArrow className="w-full">
+        Email Project Enquiry
       </Button>
 
       <p className="text-xs text-slate-400 text-center mt-4">
-        We respond within 1 business day. Your information is kept confidential.
+        This button opens an email addressed to tomborneosb@gmail.com with your enquiry details filled in.
       </p>
     </form>
   )

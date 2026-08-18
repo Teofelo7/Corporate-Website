@@ -3,12 +3,10 @@
 export type Page = 'home' | 'about' | 'services' | 'projects' | 'contact'
 
 export type ServiceCategory =
-  | 'Building Construction'
-  | 'Civil Engineering'
-  | 'Electrical Installation'
-  | 'Solar Solutions'
-
-export type ProjectFilter = 'All' | ServiceCategory
+  | 'Solar Installation'
+  | 'Civil Contracting Work'
+  | 'Mechanical and Electrical'
+  | 'Supply of Manpower'
 
 export interface NavLink {
   label: string
@@ -18,11 +16,11 @@ export interface NavLink {
 export interface Project {
   id: number
   title: string
-  location: string
-  category: ServiceCategory
-  year: number
+  category: 'Solar PV Installation Works'
+  capacity: string
+  contractType: string
   image: string
-  description: string
+  description?: string
 }
 
 export interface Service {

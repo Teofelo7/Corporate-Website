@@ -1,69 +1,113 @@
 import type { Project } from '../types'
-import { img } from '../utils/image'
 
-/* ── Projects data ───────────────────────────────────────────────────────────
-   To add a new project, append an object here — no component changes needed.
-   ─────────────────────────────────────────────────────────────────────────── */
+/* ── Completed projects from TOMBORNEO SDN. BHD. Company Profile 2025 ────── */
+
+const projectImage = (index: number) =>
+  `/images/project-references/solar-ref-${String(index).padStart(2, '0')}.jpg`
 
 export const PROJECTS: Project[] = [
   {
     id: 1,
-    title: 'Taman Kinabalu Residences',
-    location: 'Kota Kinabalu, Sabah',
-    category: 'Building Construction',
-    year: 2023,
-    image: img('1744965874640-f3d670a7a923'),
-    description:
-      '48-unit residential complex with modern amenities and landscaped communal grounds, completed on schedule.',
+    title: 'First Engineering Plastic (M) Sdn Bhd',
+    category: 'Solar PV Installation Works',
+    capacity: '1342.2 kWp',
+    contractType: 'Solar PV Installation Works (Subcon)',
+    image: projectImage(1),
   },
   {
     id: 2,
-    title: 'Sandakan Bypass Road',
-    location: 'Sandakan, Sabah',
-    category: 'Civil Engineering',
-    year: 2023,
-    image: img('1515674744565-0d7112cd179a'),
-    description:
-      '4.8 km dual carriageway with reinforced bridge crossings and integrated stormwater drainage systems.',
+    title: 'Tai Sin Electric Cables Sdn Bhd',
+    category: 'Solar PV Installation Works',
+    capacity: '630.375 kWp',
+    contractType: 'Solar PV Installation Works (Subcon)',
+    image: projectImage(2),
   },
   {
     id: 3,
-    title: 'KKIA Terminal Electrical Works',
-    location: 'Kota Kinabalu, Sabah',
-    category: 'Electrical Installation',
-    year: 2022,
-    image: img('1635335874521-7987db781153'),
-    description:
-      'Full HV/LV electrical system upgrade and panel installation for the international terminal expansion.',
+    title: 'Jstar Motion Sdn Bhd',
+    category: 'Solar PV Installation Works',
+    capacity: '1140.21 kWp',
+    contractType: 'Solar PV Installation Works (Subcon)',
+    image: projectImage(3),
   },
   {
     id: 4,
-    title: 'Tawau Industrial Solar Farm',
-    location: 'Tawau, Sabah',
-    category: 'Solar Solutions',
-    year: 2024,
-    image: img('1726866492047-7f9516558c6e'),
-    description:
-      '500 kWp rooftop solar PV system delivering clean energy to a major manufacturing facility.',
+    title: 'Megahock Pipes & Profiles Manufacturing Sdn Bhd',
+    category: 'Solar PV Installation Works',
+    capacity: '1040.58 kWp',
+    contractType: 'Solar PV Installation Works (Subcon)',
+    image: projectImage(4),
   },
   {
     id: 5,
-    title: 'Penampang District Office',
-    location: 'Penampang, Sabah',
-    category: 'Building Construction',
-    year: 2022,
-    image: img('1741242950211-0a45907918a7'),
-    description:
-      'Five-storey government administrative complex with integrated public service facilities and car park.',
+    title: 'JAIS Selangor',
+    category: 'Solar PV Installation Works',
+    capacity: '701.01 kWp · 12 Sites',
+    contractType: 'Solar PV Installation Works (Subcon)',
+    image: projectImage(5),
   },
   {
     id: 6,
-    title: 'Keningau Water Treatment Plant',
-    location: 'Keningau, Sabah',
-    category: 'Civil Engineering',
-    year: 2021,
-    image: img('1593195200151-5fb30336a40d'),
-    description:
-      'Civil infrastructure works for a treatment facility now serving over 50,000 residents in Keningau.',
+    title: 'PKT Logistic (M) Sdn Bhd',
+    category: 'Solar PV Installation Works',
+    capacity: '1117.35 kWp',
+    contractType: 'Solar PV Installation Works (Subcon)',
+    image: projectImage(6),
+  },
+  {
+    id: 7,
+    title: 'Furutec Electrical Sdn Bhd',
+    category: 'Solar PV Installation Works',
+    capacity: '132.21 kWp',
+    contractType: 'Solar PV Installation Works (Subcon)',
+    image: projectImage(7),
+  },
+  {
+    id: 8,
+    title: 'QL Foods Sdn Bhd',
+    category: 'Solar PV Installation Works',
+    capacity: '1577.745 kWp',
+    contractType: 'Solar PV Installation Works (Subcon)',
+    image: projectImage(8),
+  },
+  {
+    id: 9,
+    title: 'Tomei Gold & Jewellery Sdn Bhd',
+    category: 'Solar PV Installation Works',
+    capacity: '215.28 kWp',
+    contractType: 'Solar PV Installation Works (Subcon)',
+    image: projectImage(9),
+  },
+  {
+    id: 10,
+    title: 'Durasafe Sdn Bhd',
+    category: 'Solar PV Installation Works',
+    capacity: '91.50 kWp',
+    contractType: 'Solar PV Installation Works (Subcon)',
+    image: projectImage(10),
+  },
+  {
+    id: 11,
+    title: 'Miaw Fresh Mart Enterprise',
+    category: 'Solar PV Installation Works',
+    capacity: '24.57 kWp',
+    contractType: 'Solar PV Installation Works (Subcon)',
+    image: projectImage(11),
+  },
+  {
+    id: 12,
+    title: 'BRC Industries Sdn Bhd',
+    category: 'Solar PV Installation Works',
+    capacity: '162.63 kWp',
+    contractType: 'Solar PV Installation Works (Subcon)',
+    image: projectImage(12),
+  },
+  {
+    id: 13,
+    title: 'Selia-Tek Holdings Sdn Bhd',
+    category: 'Solar PV Installation Works',
+    capacity: '500.99 kWp',
+    contractType: 'Solar PV Installation Works (Subcon)',
+    image: projectImage(13),
   },
 ]
